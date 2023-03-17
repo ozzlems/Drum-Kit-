@@ -5,10 +5,12 @@ for(i of element){
   this.style.color = " #d44cd6";
   var buttonInnerHTML = this.innerHTML;
     a(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
 })};
 
 addEventListener("keydown" , function(e){
-a(event.key);
+a(e.key);
+buttonAnimation(e.key);
 })
 
 function a(key){
@@ -51,4 +53,13 @@ function a(key){
        default: console.log(innerHTML);
   }
 
+}
+
+function buttonAnimation(currentKey){
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+
+  setTimeout(function() {
+    activeButton.classList.remove("pressed");
+} , 100);
 }
